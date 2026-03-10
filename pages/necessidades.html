@@ -1,0 +1,71 @@
+<div class="necessidades-page">
+    <!-- Cabeçalho -->
+    <div class="page-header">
+        <div class="header-title">
+            <span class="header-emoji">📋</span>
+            <h1>MISSÕES E NECESSIDADES</h1>
+        </div>
+        <p class="header-subtitle">Organize missões, itens e tarefas da campanha</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">📋</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-missoes">0</span>
+                <span class="stat-label">Total de Itens</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-info">
+                <span class="stat-value" id="pendentes">0</span>
+                <span class="stat-label">Pendentes</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-info">
+                <span class="stat-value" id="concluidas">0</span>
+                <span class="stat-label">Concluídas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros por Categoria -->
+    <div class="categorias-grid">
+        <button class="categoria-btn" onclick="filtrarPorCategoria('todas')">📋 Todas</button>
+        <button class="categoria-btn missao" onclick="filtrarPorCategoria('Missão')">🎯 Missões</button>
+        <button class="categoria-btn urgente" onclick="filtrarPorCategoria('Urgente')">⚠️ Urgente</button>
+        <button class="categoria-btn importante" onclick="filtrarPorCategoria('Importante')">⭐ Importante</button>
+        <button class="categoria-btn loot" onclick="filtrarPorCategoria('Loot')">💎 Loot</button>
+        <button class="categoria-btn pocoes" onclick="filtrarPorCategoria('Poção')">🧪 Poções</button>
+    </div>
+
+    <!-- Abas de Status -->
+    <div class="status-tabs">
+        <button class="tab-btn active" onclick="mudarAbaStatus('todas')">Todas</button>
+        <button class="tab-btn" onclick="mudarAbaStatus('pendente')">⏳ Pendentes</button>
+        <button class="tab-btn" onclick="mudarAbaStatus('andamento')">⚙️ Andamento</button>
+        <button class="tab-btn" onclick="mudarAbaStatus('concluida')">✅ Concluídas</button>
+    </div>
+
+    <!-- Barra de busca -->
+    <div class="busca-container">
+        <input type="text" id="busca-necessidade" placeholder="🔍 Buscar missões ou itens..." class="busca-input">
+        <button class="btn-busca" onclick="buscarNecessidades()">Buscar</button>
+    </div>
+
+    <!-- Lista de Necessidades -->
+    <div id="necessidades-lista" class="necessidades-lista">
+        <!-- Os itens serão inseridos aqui pelo JavaScript -->
+    </div>
+
+    <!-- Botão de Adicionar -->
+    <button class="btn-add" onclick="abrirModalNecessidade()">
+        <span class="btn-icon">📋</span>
+        <span class="btn-text">ADICIONAR MISSÃO/ITEM</span>
+        <span class="btn-icon">✨</span>
+    </button>
+</div>

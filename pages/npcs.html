@@ -1,0 +1,62 @@
+<div class="npcs-page">
+    <!-- Cabeçalho -->
+    <div class="page-header">
+        <div class="header-title">
+            <span class="header-emoji">👥</span>
+            <h1>SMURFS E NPCs</h1>
+        </div>
+        <p class="header-subtitle">Todos os personagens importantes da sua campanha</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-npcs">0</span>
+                <span class="stat-label">Total de NPCs</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">🧢</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-smurfs">0</span>
+                <span class="stat-label">Smurfs</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">🏠</div>
+            <div class="stat-info">
+                <span class="stat-value" id="locais-unicos">0</span>
+                <span class="stat-label">Locais</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros Rápidos -->
+    <div class="filtros-rapidos">
+        <button class="filtro-tag" onclick="filtrarNPCs('todos')">Todos</button>
+        <button class="filtro-tag" onclick="filtrarNPCs('smurf')">🧢 Smurfs</button>
+        <button class="filtro-tag" onclick="filtrarNPCs('amigo')">🦊 Amigos</button>
+        <button class="filtro-tag" onclick="filtrarNPCs('comerciante')">💰 Comerciantes</button>
+        <button class="filtro-tag" onclick="filtrarNPCs('quest')">📜 Quest</button>
+    </div>
+
+    <!-- Barra de busca -->
+    <div class="busca-container">
+        <input type="text" id="busca-npc" placeholder="🔍 Buscar por nome, função ou local..." class="busca-input">
+        <button class="btn-busca" onclick="buscarNPCs()">Buscar</button>
+    </div>
+
+    <!-- Lista de NPCs -->
+    <div id="npcs-lista" class="npcs-lista">
+        <!-- Os cards serão inseridos aqui pelo JavaScript -->
+    </div>
+
+    <!-- Botão de Adicionar -->
+    <button class="btn-add" onclick="abrirModalNPC()">
+        <span class="btn-icon">👥</span>
+        <span class="btn-text">ADICIONAR NOVO NPC</span>
+        <span class="btn-icon">✨</span>
+    </button>
+</div>

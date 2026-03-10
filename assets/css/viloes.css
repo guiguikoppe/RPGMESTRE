@@ -1,0 +1,548 @@
+
+/* Container principal */
+.viloes-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* Stats Header */
+.stats-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--smurf-blue), var(--smurf-blue-dark));
+    border-radius: 15px;
+    padding: 12px 5px;
+    text-align: center;
+    border: 2px solid var(--smurf-hat);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--smurf-hat);
+    text-shadow: 2px 2px 0 var(--smurf-blue-dark);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.7rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Filtros */
+.filtros-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--smurf-blue);
+}
+
+.busca-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.busca-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--smurf-blue);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+.btn-filtro {
+    padding: 12px 20px;
+    background: var(--smurf-blue);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-filtro:active {
+    transform: scale(0.95);
+    background: var(--smurf-blue-dark);
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.filtro-select {
+    padding: 10px;
+    border: 2px solid var(--smurf-blue);
+    border-radius: 15px;
+    background: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Lista de Vilões */
+.viloes-lista {
+    min-height: 200px;
+    margin-bottom: 20px;
+}
+
+/* Card de Vilão */
+.vilao-card {
+    background: var(--dnd-parchment);
+    border: 3px solid var(--smurf-blue);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.vilao-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--smurf-blue);
+}
+
+.vilao-tipo-emoji {
+    font-size: 2rem;
+    background: var(--smurf-blue);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--smurf-hat);
+}
+
+.vilao-nome {
+    flex: 1;
+    font-size: 1.3rem;
+    color: var(--smurf-blue-dark);
+    font-family: 'Comic Sans MS', cursive;
+    margin: 0;
+}
+
+.badge-nivel {
+    background: var(--dnd-gold);
+    color: var(--bg-dark);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 2px solid var(--smurf-hat);
+}
+
+/* Status */
+.vilao-status {
+    background: rgba(59, 125, 189, 0.1);
+    border-radius: 15px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.status-item.vida {
+    margin-bottom: 10px;
+}
+
+.status-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 3px;
+}
+
+.status-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--dnd-red);
+}
+
+.status-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+/* Atributos */
+.atributos-mini {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(59, 125, 189, 0.15);
+    border-radius: 15px;
+}
+
+.atributo {
+    background: var(--smurf-blue);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid var(--smurf-hat);
+}
+
+/* Detalhes */
+.detalhes-vilao {
+    margin: 15px 0;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.detalhes-vilao summary {
+    cursor: pointer;
+    color: var(--smurf-blue);
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.detalhes-vilao summary:hover {
+    background: var(--smurf-blue);
+    color: white;
+}
+
+.detalhes-conteudo {
+    padding: 15px;
+    animation: fadeIn 0.3s;
+}
+
+.detalhes-conteudo h4 {
+    color: var(--smurf-blue-dark);
+    margin: 15px 0 8px 0;
+    font-size: 1rem;
+    border-left: 4px solid var(--dnd-gold);
+    padding-left: 8px;
+}
+
+.detalhes-conteudo h4:first-child {
+    margin-top: 0;
+}
+
+.ataques-list, .habilidades-list, .acoes-lendarias-list, .equipamento-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ataques-list li, .habilidades-list li, .acoes-lendarias-list li, .equipamento-list li {
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.5);
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border-left: 3px solid var(--smurf-blue);
+    font-size: 0.9rem;
+}
+
+.ataques-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ataque-nome {
+    font-weight: bold;
+    color: var(--dnd-brown);
+}
+
+.ataque-bonus {
+    color: var(--smurf-blue);
+    font-size: 0.8rem;
+    background: rgba(59, 125, 189, 0.2);
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.ataque-dano {
+    color: var(--dnd-red);
+    font-weight: bold;
+    background: rgba(198, 40, 40, 0.1);
+    padding: 2px 8px;
+    border-radius: 15px;
+}
+
+.historia, .taticas, .fraquezas, .tesouro {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    border-left: 4px solid var(--dnd-gold);
+    margin-bottom: 10px;
+}
+
+/* Ações do Vilão */
+.acoes-vilao {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.btn-editar, .btn-remover, .btn-duplicar {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.btn-editar {
+    background: var(--smurf-blue);
+    color: white;
+    border: 2px solid var(--smurf-hat);
+}
+
+.btn-remover {
+    background: var(--dnd-red);
+    color: white;
+    border: 2px solid #8b1e2c;
+}
+
+.btn-duplicar {
+    flex: 0.5;
+    background: var(--dnd-gold);
+    color: var(--bg-dark);
+    border: 2px solid #b8860b;
+}
+
+.btn-editar:active, .btn-remover:active, .btn-duplicar:active {
+    transform: scale(0.95);
+}
+
+/* Botão Adicionar */
+.btn-add {
+    background: linear-gradient(135deg, var(--smurf-blue), var(--smurf-blue-dark));
+    color: white;
+    border: 3px solid var(--smurf-hat);
+    padding: 18px;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 0 var(--smurf-blue-dark);
+    margin-top: 10px;
+}
+
+.btn-add:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 var(--smurf-blue-dark);
+}
+
+.btn-icon {
+    font-size: 1.4rem;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    border: 2px dashed var(--smurf-blue);
+}
+
+.empty-state .emoji {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+}
+
+.empty-state h3 {
+    color: var(--smurf-hat);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.empty-state p {
+    color: var(--text-dim);
+}
+
+/* Loading */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--smurf-blue);
+    border-top-color: var(--smurf-hat);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+/* Tooltips */
+[title] {
+    position: relative;
+    cursor: help;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .stats-header {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .filtros-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .acoes-vilao {
+        flex-wrap: wrap;
+    }
+    
+    .btn-editar, .btn-remover {
+        flex: 1 1 calc(50% - 4px);
+    }
+    
+    .btn-duplicar {
+        flex: 1 1 100%;
+    }
+    
+    .card-header {
+        flex-wrap: wrap;
+    }
+    
+    .vilao-nome {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Scrollbar personalizada */
+.viloes-lista::-webkit-scrollbar {
+    width: 6px;
+}
+
+.viloes-lista::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.viloes-lista::-webkit-scrollbar-thumb {
+    background: var(--smurf-blue);
+    border-radius: 10px;
+}
+
+/* Efeitos de brilho */
+@keyframes glow {
+    0% { box-shadow: 0 0 5px var(--smurf-blue); }
+    50% { box-shadow: 0 0 20px var(--smurf-blue); }
+    100% { box-shadow: 0 0 5px var(--smurf-blue); }
+}
+
+.vilao-card[data-perigo="alto"] {
+    animation: glow 2s infinite;
+    border-color: var(--dnd-red);
+}
+
+/* Tags e Badges */
+.tag-gargamel {
+    background: #8b4513;
+    color: white;
+}
+
+.tag-azrael {
+    background: #f9a826;
+    color: #1a1a2e;
+}
+
+.tag-hogatha {
+    background: #9d4edd;
+    color: white;
+}
+
+/* Progresso da Vida */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #c92a2a);
+    border-radius: 10px;
+    transition: width 0.3s;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 1s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+

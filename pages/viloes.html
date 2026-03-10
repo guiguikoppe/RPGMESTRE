@@ -1,0 +1,88 @@
+<div class="viloes-page">
+      <link rel="stylesheet" href="../assets/css/viloes.css">
+        <link rel="stylesheet" href="style.css">
+
+
+    <!-- Cabeçalho com estatísticas -->
+    <div class="page-header">
+        <div class="header-title">
+            <span class="header-emoji">👾</span>
+            <h1>VILÕES DA CAMPANHA</h1>
+        </div>
+        <p class="header-subtitle">Gerencie todos os antagonistas da sua aventura</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">👾</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-viloes">0</span>
+                <span class="stat-label">Total de Vilões</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">⚔️</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-nd">0</span>
+                <span class="stat-label">ND Total</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">👑</div>
+            <div class="stat-info">
+                <span class="stat-value" id="ameaca-principal">-</span>
+                <span class="stat-label">Ameaça Principal</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de busca e filtros -->
+    <div class="filtros-container">
+        <div class="busca-wrapper">
+            <input type="text" id="busca-vilao" placeholder="🔍 Buscar por nome, tipo ou habilidade..." class="busca-input">
+            <button class="btn-busca" onclick="filtrarViloes()">Buscar</button>
+        </div>
+        
+        <div class="filtros-grid">
+            <select id="filtro-nivel" class="filtro-select" onchange="filtrarViloes()">
+                <option value="">Todos os Níveis</option>
+                <option value="1">Nível 1</option>
+                <option value="2">Nível 2</option>
+                <option value="3">Nível 3</option>
+                <option value="4">Nível 4</option>
+                <option value="5">Nível 5</option>
+                <option value="6">Nível 6</option>
+                <option value="7">Nível 7</option>
+                <option value="8">Nível 8</option>
+                <option value="9">Nível 9</option>
+                <option value="10">Nível 10+</option>
+            </select>
+            
+            <select id="filtro-tipo" class="filtro-select" onchange="filtrarViloes()">
+                <option value="">Todos os Tipos</option>
+                <option value="gargamel">Gargamel</option>
+                <option value="azrael">Azrael</option>
+                <option value="hogatha">Hogatha</option>
+                <option value="humano">Humano</option>
+                <option value="monstro">Monstro</option>
+                <option value="magico">Mágico</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Lista de Vilões -->
+    <div id="viloes-lista" class="viloes-lista">
+        <!-- Os cards serão inseridos aqui pelo JavaScript -->
+    </div>
+
+    <!-- Botão de Adicionar -->
+    <button class="btn-add" onclick="abrirModalVilao()">
+        <span class="btn-icon">👾</span>
+        <span class="btn-text">ADICIONAR NOVO VILÃO</span>
+        <span class="btn-icon">✨</span>
+    </button>
+</div>
+
+ 
+  <script src="../script.js"></script>
