@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>🧢 SMURFS RPG - D&D 5.5</title>
     
-    <!-- CSS -->
+    <!-- CSS Principal -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- PWA / Ícones -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <!-- CSS das páginas específicas -->
+    <link rel="stylesheet" href="assets/css/historia.css">
+    <link rel="stylesheet" href="assets/css/armas.css">
+    
     <meta name="theme-color" content="#3b7dbd">
 </head>
 <body>
@@ -19,7 +20,6 @@
         <header class="header">
             <div class="header-content">
                 <h1>🧢 SMURFS RPG 🧢</h1>
-                <button class="header-menu" onclick="toggleMenu()">☰</button>
             </div>
         </header>
     </div>
@@ -32,48 +32,34 @@
                 <h1 class="loading-title">SMURFS RPG</h1>
                 <div class="loading-spinner"></div>
                 <p class="loading-text">Carregando a Vila dos Smurfs...</p>
-                
-                <!-- Menu de navegação rápido -->
-                <div class="loading-menu">
-                    <div class="loading-menu-item">
-                        <span class="menu-emoji">👾</span>
-                        <span>Vilões</span>
-                    </div>
-                    <div class="loading-menu-item">
-                        <span class="menu-emoji">🗺️</span>
-                        <span>Mapa</span>
-                    </div>
-                    <div class="loading-menu-item">
-                        <span class="menu-emoji">👥</span>
-                        <span>NPCs</span>
-                    </div>
-                    <div class="loading-menu-item">
-                        <span class="menu-emoji">📋</span>
-                        <span>Missões</span>
-                    </div>
-                </div>
             </div>
         </div>
     </main>
 
     <!-- Navegação inferior -->
     <nav class="bottom-nav">
-        <a href="pages/viloes.html" class="nav-item active" data-page="viloes" onclick="carregarPagina('viloes'); return false;">
+        <a href="#" class="nav-item active" data-page="viloes" id="nav-viloes">
             <span class="nav-icon">👾</span>
             <span class="nav-text">Vilões</span>
         </a>
-        <a href="pages/mapa.html" class="nav-item" data-page="mapa" onclick="carregarPagina('mapa'); return false;">
-            <span class="nav-icon">🗺️</span>
-            <span class="nav-text">Mapa</span>
-        </a>
-        <a href="pages/npcs.html" class="nav-item" data-page="npcs" onclick="carregarPagina('npcs'); return false;">
+        <a href="#" class="nav-item" data-page="npcs" id="nav-npcs">
             <span class="nav-icon">👥</span>
             <span class="nav-text">NPCs</span>
         </a>
-        <a href="pages/necessidades.html" class="nav-item" data-page="necessidades" onclick="carregarPagina('necessidades'); return false;">
+
+        <a href="#" class="nav-item" data-page="armas" id="nav-armas">
+    <span class="nav-icon">⚔️</span>
+    <span class="nav-text">Armas</span>
+</a>
+        <a href="#" class="nav-item" data-page="necessidades" id="nav-necessidades">
             <span class="nav-icon">📋</span>
             <span class="nav-text">Missões</span>
         </a>
+        <a href="#" class="nav-item" data-page="historia" id="nav-historia">
+            <span class="nav-icon">📜</span>
+            <span class="nav-text">História</span>
+        </a>
+
     </nav>
 
     <!-- Modal -->
@@ -93,10 +79,47 @@
     <div class="floating-mushroom">🍄</div>
     <div class="floating-smurf">🧢</div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+    <!-- Script principal (sempre carregado no final) -->
+  <script src="./script.js"></script>
     
-
-
+    <!-- Script de inicialização (garante que tudo funciona) -->
+    <script>
+        // Garantir que a navegação funciona mesmo se algo der errado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Aguardar o script principal carregar
+            setTimeout(function() {
+                // Se a função carregarPagina não existir, criar uma de fallback
+                if (typeof window.carregarPagina !== 'function') {
+                    console.warn('Função carregarPagina não encontrada, criando fallback');
+                    window.carregarPagina = function(page) {
+                        console.log('Fallback: tentando carregar página', page);
+                        // Tentar recarregar o script
+                        const script = document.createElement('script');
+                        script.src = 'js/script.js?' + Date.now(); // Cache bust
+                        script.onload = function() {
+                            console.log('Script recarregado, tentando novamente');
+                            if (typeof window.carregarPagina === 'function') {
+                                window.carregarPagina(page);
+                            }
+                        };
+                        document.body.appendChild(script);
+                    };
+                }
+                
+                // Adicionar eventos aos links de navegação
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const page = this.dataset.page;
+                        if (typeof window.carregarPagina === 'function') {
+                            window.carregarPagina(page);
+                        } else {
+                            console.error('Função carregarPagina não disponível');
+                        }
+                    });
+                });
+            }, 500); // Pequeno delay para garantir que o script carregou
+        });
+    </script>
 </body>
 </html>
