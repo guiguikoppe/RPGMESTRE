@@ -1,0 +1,408 @@
+<div class="armas-page">
+    <!-- Cabeçalho -->
+    <div class="page-header">
+        <div class="header-title">
+            <span class="header-emoji">⚔️</span>
+            <h1>ARMAS DOS SMURFS</h1>
+        </div>
+        <p class="header-subtitle">Arsenal completo para todas as personalidades</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">⚔️</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-armas">25</span>
+                <span class="stat-label">Total de Armas</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">🌿</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-natureza">5</span>
+                <span class="stat-label">Natureza</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">⚙️</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-tecnologia">4</span>
+                <span class="stat-label">Tecnologia</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">💪</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-forca">4</span>
+                <span class="stat-label">Força</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">🌗</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-bipolar">4</span>
+                <span class="stat-label">Instáveis</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">🎖️</div>
+            <div class="stat-info">
+                <span class="stat-value" id="total-militar">4</span>
+                <span class="stat-label">Táticas</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtros Rápidos -->
+    <div class="filtros-rapidos">
+        <button class="filtro-tag active" onclick="filtrarArmas('todas')">⚔️ Todas</button>
+        <button class="filtro-tag" onclick="filtrarArmas('natureza')">🌿 Natureza</button>
+        <button class="filtro-tag" onclick="filtrarArmas('tecnologia')">⚙️ Tecnologia</button>
+        <button class="filtro-tag" onclick="filtrarArmas('forca')">💪 Força</button>
+        <button class="filtro-tag" onclick="filtrarArmas('bipolar')">🌗 Instáveis</button>
+        <button class="filtro-tag" onclick="filtrarArmas('militar')">🎖️ Táticas</button>
+    </div>
+
+    <!-- Barra de busca -->
+    <div class="busca-wrapper">
+        <input type="text" id="busca-arma" placeholder="🔍 Buscar arma por nome, tipo ou efeito..." class="busca-input">
+        <button class="btn-busca" onclick="buscarArmas()">Buscar</button>
+    </div>
+
+    <!-- Lista de Armas -->
+    <div id="armas-lista" class="armas-lista">
+        <!-- Categoria: Natureza -->
+        <div class="categoria-titulo" data-categoria="natureza">
+            <span class="categoria-emoji">🌿</span> ARMAS DA NATUREZA
+            <span class="categoria-sub">(Pessoas Tímidas)</span>
+        </div>
+        
+        <div class="arma-card natureza">
+            <div class="arma-header">
+                <span class="arma-emoji">🌱</span>
+                <h3 class="arma-nome">Cajado de Cipó Vivo</h3>
+                <span class="arma-tipo">Contundente / Natural</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d6 + SAB</span>
+            </div>
+            <div class="arma-propriedades">
+                <span class="propriedade">Versátil</span>
+                <span class="propriedade">Mágico</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Se acertar, pode reduzir movimento do alvo em 1,5m.</p>
+            </div>
+        </div>
+
+        <div class="arma-card natureza">
+            <div class="arma-header">
+                <span class="arma-emoji">🍃</span>
+                <h3 class="arma-nome">Lâminas de Folha Lunar</h3>
+                <span class="arma-tipo">Cortante</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d4 + DES (cada)</span>
+            </div>
+            <div class="arma-propriedades">
+                <span class="propriedade">Leve</span>
+                <span class="propriedade">Dupla</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Se acertar os dois ataques → +1d4 dano extra.</p>
+            </div>
+        </div>
+
+        <div class="arma-card natureza">
+            <div class="arma-header">
+                <span class="arma-emoji">🌸</span>
+                <h3 class="arma-nome">Bastão Floral Curativo</h3>
+                <span class="arma-tipo">Contundente</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d4 + SAB</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>1x por combate cura aliado em 1d6 + SAB.</p>
+            </div>
+        </div>
+
+        <div class="arma-card natureza">
+            <div class="arma-header">
+                <span class="arma-emoji">🌳</span>
+                <h3 class="arma-nome">Chicote de Raiz</h3>
+                <span class="arma-tipo">Contundente</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d4 + SAB</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Pode puxar inimigo ou derrubar (teste de força).</p>
+            </div>
+        </div>
+
+        <!-- Categoria: Tecnologia -->
+        <div class="categoria-titulo" data-categoria="tecnologia">
+            <span class="categoria-emoji">⚙️</span> ARMAS TECNOLÓGICAS
+            <span class="categoria-sub">(Pessoas Preguiçosas Inteligentes)</span>
+        </div>
+
+        <div class="arma-card tecnologia">
+            <div class="arma-header">
+                <span class="arma-emoji">⚙️</span>
+                <h3 class="arma-nome">Chave-Martelo Multifuncional</h3>
+                <span class="arma-tipo">Contundente</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d6 + INT</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Pode mudar para dano elétrico ou ácido.</p>
+            </div>
+        </div>
+
+        <div class="arma-card tecnologia">
+            <div class="arma-header">
+                <span class="arma-emoji">🧪</span>
+                <h3 class="arma-nome">Lançador de Frascos</h3>
+                <span class="arma-tipo">Elemental / Distância</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d6 + INT</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>1x por combate causa área pequena 1d6.</p>
+            </div>
+        </div>
+
+        <div class="arma-card tecnologia">
+            <div class="arma-header">
+                <span class="arma-emoji">🛠️</span>
+                <h3 class="arma-nome">Bastão Retrátil de Ferramentas</h3>
+                <span class="arma-tipo">Contundente</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d4 + INT</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>+1d4 em testes de construção e engenharia.</p>
+            </div>
+        </div>
+
+        <div class="arma-card tecnologia">
+            <div class="arma-header">
+                <span class="arma-emoji">💡</span>
+                <h3 class="arma-nome">Disco Calculador</h3>
+                <span class="arma-tipo">Contundente</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d4 + INT</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Se errar, volta para a mão automaticamente.</p>
+            </div>
+        </div>
+
+        <!-- Categoria: Força -->
+        <div class="categoria-titulo" data-categoria="forca">
+            <span class="categoria-emoji">💪</span> ARMAS DE FORÇA
+            <span class="categoria-sub">(Pessoas Extrovertidas Musculosas)</span>
+        </div>
+
+        <div class="arma-card forca">
+            <div class="arma-header">
+                <span class="arma-emoji">🪨</span>
+                <h3 class="arma-nome">Manoplas de Pedra Smurf</h3>
+                <span class="arma-tipo">Contundente</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d8 + FOR</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Pode empurrar inimigos 1,5m.</p>
+            </div>
+        </div>
+
+        <div class="arma-card forca">
+            <div class="arma-header">
+                <span class="arma-emoji">🪵</span>
+                <h3 class="arma-nome">Martelo de Tronco</h3>
+                <span class="arma-tipo">Contundente</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d10 + FOR</span>
+            </div>
+            <div class="arma-propriedades">
+                <span class="propriedade">Pesada</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Ataque crítico derruba inimigo.</p>
+            </div>
+        </div>
+
+        <div class="arma-card forca">
+            <div class="arma-header">
+                <span class="arma-emoji">🥊</span>
+                <h3 class="arma-nome">Luvas de Impacto</h3>
+                <span class="arma-tipo">Contundente</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d6 + FOR</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Pode fazer ataque bônus 1d4.</p>
+            </div>
+        </div>
+
+        <div class="arma-card forca">
+            <div class="arma-header">
+                <span class="arma-emoji">💥</span>
+                <h3 class="arma-nome">Clava do Campeão</h3>
+                <span class="arma-tipo">Contundente</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d8 + FOR</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>1x combate causa área 1d6.</p>
+            </div>
+        </div>
+
+        <!-- Categoria: Bipolar -->
+        <div class="categoria-titulo" data-categoria="bipolar">
+            <span class="categoria-emoji">🌗</span> ARMAS INSTÁVEIS
+            <span class="categoria-sub">(Pessoas Bipolares)</span>
+        </div>
+
+        <div class="arma-card bipolar">
+            <div class="arma-header">
+                <span class="arma-emoji">🌗</span>
+                <h3 class="arma-nome">Lâmina das Duas Almas</h3>
+                <span class="arma-tipo">Cortante</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d8 + FOR</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Modo calmo → +1 ataque<br>Modo fúria → +1d6 dano</p>
+            </div>
+        </div>
+
+        <div class="arma-card bipolar">
+            <div class="arma-header">
+                <span class="arma-emoji">🔥</span>
+                <h3 class="arma-nome">Machado Emocional</h3>
+                <span class="arma-tipo">Cortante</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d10 + FOR</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Abaixo de metade da vida causa +1d4 dano.</p>
+            </div>
+        </div>
+
+        <div class="arma-card bipolar">
+            <div class="arma-header">
+                <span class="arma-emoji">🌫️</span>
+                <h3 class="arma-nome">Espada Nebulosa</h3>
+                <span class="arma-tipo">Cortante</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d6 + DES</span>
+            </div>
+        </div>
+
+        <div class="arma-card bipolar">
+            <div class="arma-header">
+                <span class="arma-emoji">⚡</span>
+                <h3 class="arma-nome">Besta Pontuda</h3>
+                <span class="arma-tipo">Perfurante / Distância</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d6 + DES cada flecha<br>1d4 + FOR parte pontuda</span>
+            </div>
+        </div>
+
+        <!-- Categoria: Militar -->
+        <div class="categoria-titulo" data-categoria="militar">
+            <span class="categoria-emoji">🎖️</span> ARMAS TÁTICAS
+            <span class="categoria-sub">(Pessoas Militares)</span>
+        </div>
+
+        <div class="arma-card militar">
+            <div class="arma-header">
+                <span class="arma-emoji">⚔️</span>
+                <h3 class="arma-nome">Espada Tática Smurf</h3>
+                <span class="arma-tipo">Cortante</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d6 + FOR</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Aliados recebem +1d4 dano contra alvo.</p>
+            </div>
+        </div>
+
+        <div class="arma-card militar">
+            <div class="arma-header">
+                <span class="arma-emoji">🛡️</span>
+                <h3 class="arma-nome">Lança de Comando</h3>
+                <span class="arma-tipo">Perfurante</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d8 + FOR</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Pode atacar a 3m.</p>
+            </div>
+        </div>
+
+        <div class="arma-card militar">
+            <div class="arma-header">
+                <span class="arma-emoji">🪖</span>
+                <h3 class="arma-nome">Sabre do Capitão</h3>
+                <span class="arma-tipo">Cortante</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d6 + FOR</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>+1d4 em ataques coordenados.</p>
+            </div>
+        </div>
+
+        <div class="arma-card militar">
+            <div class="arma-header">
+                <span class="arma-emoji">🎯</span>
+                <h3 class="arma-nome">Adaga Estratégica</h3>
+                <span class="arma-tipo">Perfurante</span>
+            </div>
+            <div class="arma-dano">
+                <span class="dado">🎲 1d4 + DES</span>
+            </div>
+            <div class="arma-efeito">
+                <span class="efeito-label">✨ Efeito:</span>
+                <p>Vantagem se atacar inimigo distraído.</p>
+            </div>
+        </div>
+    </div>
+</div>

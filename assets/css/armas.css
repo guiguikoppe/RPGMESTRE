@@ -1,0 +1,541 @@
+/* ===== PÁGINA DE ARMAS ===== */
+.armas-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== HEADER ===== */
+.armas-page .page-header {
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    border-radius: 40px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    border: 4px solid #ffd700;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.armas-page .page-header::before {
+    content: '⚔️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    color: rgba(255,215,0,0.1);
+    z-index: 0;
+}
+
+.armas-page .header-title {
+    position: relative;
+    z-index: 1;
+}
+
+.armas-page .header-emoji {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px #ffd700);
+}
+
+.armas-page h1 {
+    font-size: 2.5rem;
+    color: #ffd700;
+    text-shadow: 3px 3px 0 #8b4513, 5px 5px 0 rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+}
+
+.armas-page .header-subtitle {
+    font-size: 1.2rem;
+    color: white;
+    background: rgba(0,0,0,0.3);
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    border: 1px solid #ffd700;
+}
+
+/* ===== STATS GRID ===== */
+.armas-page .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.armas-page .stat-card {
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center;
+    border: 3px solid #ffd700;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.armas-page .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255,215,0,0.3);
+}
+
+.armas-page .stat-card::before {
+    content: '⚔️';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 3rem;
+    opacity: 0.1;
+    transform: rotate(15deg);
+}
+
+.armas-page .stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px #ffd700);
+}
+
+.armas-page .stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffd700;
+    line-height: 1.2;
+}
+
+.armas-page .stat-label {
+    font-size: 0.9rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== FILTROS ===== */
+.armas-page .filtros-rapidos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.armas-page .filtro-tag {
+    padding: 12px 25px;
+    background: #2a2a2a;
+    border: 2px solid #ffd700;
+    border-radius: 40px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.armas-page .filtro-tag:hover {
+    background: #ffd700;
+    color: #1a1a1a;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+}
+
+.armas-page .filtro-tag.active {
+    background: #ffd700;
+    color: #1a1a1a;
+    box-shadow: 0 0 20px #ffd700;
+}
+
+/* ===== BUSCA ===== */
+.armas-page .busca-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.armas-page .busca-input {
+    flex: 1;
+    padding: 15px 20px;
+    background: #2a2a2a;
+    border: 2px solid #ffd700;
+    border-radius: 40px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.armas-page .busca-input:focus {
+    outline: none;
+    box-shadow: 0 0 20px #ffd700;
+    background: #1a1a1a;
+}
+
+.armas-page .busca-input::placeholder {
+    color: #888;
+}
+
+.armas-page .btn-busca {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    border: none;
+    border-radius: 40px;
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid white;
+}
+
+.armas-page .btn-busca:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px #ffd700;
+}
+
+/* ===== LISTA DE ARMAS ===== */
+.armas-lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* ===== CATEGORIA TÍTULO ===== */
+.categoria-titulo {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    padding: 20px 30px;
+    border-radius: 40px;
+    margin: 20px 0 10px;
+    border: 3px solid #ffd700;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 2px 2px 0 #8b4513;
+    position: relative;
+    overflow: hidden;
+}
+
+.categoria-titulo::before {
+    content: '⚔️';
+    position: absolute;
+    right: 20px;
+    font-size: 3rem;
+    opacity: 0.2;
+    transform: rotate(15deg);
+}
+
+.categoria-emoji {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 10px #ffd700);
+}
+
+.categoria-sub {
+    font-size: 1rem;
+    color: #ccc;
+    text-shadow: none;
+    margin-left: auto;
+    font-style: italic;
+}
+
+/* ===== CARD DE ARMA ===== */
+.arma-card {
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    border-radius: 30px;
+    padding: 25px;
+    border: 3px solid #ffd700;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.arma-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255,215,0,0.3);
+}
+
+.arma-card::before {
+    content: '⚔️';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 6rem;
+    opacity: 0.05;
+    transform: rotate(15deg);
+}
+
+/* Cores por categoria */
+.arma-card.natureza {
+    border-left: 8px solid #4caf50;
+}
+.arma-card.natureza .arma-emoji { color: #4caf50; }
+
+.arma-card.tecnologia {
+    border-left: 8px solid #2196f3;
+}
+.arma-card.tecnologia .arma-emoji { color: #2196f3; }
+
+.arma-card.forca {
+    border-left: 8px solid #f44336;
+}
+.arma-card.forca .arma-emoji { color: #f44336; }
+
+.arma-card.bipolar {
+    border-left: 8px solid #9c27b0;
+}
+.arma-card.bipolar .arma-emoji { color: #9c27b0; }
+
+.arma-card.militar {
+    border-left: 8px solid #ff9800;
+}
+.arma-card.militar .arma-emoji { color: #ff9800; }
+
+/* Header do card */
+.arma-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed #ffd700;
+}
+
+.arma-emoji {
+    font-size: 3rem;
+    filter: drop-shadow(0 0 10px currentColor);
+}
+
+.arma-nome {
+    flex: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 2px 2px 0 #8b4513;
+}
+
+.arma-tipo {
+    background: rgba(255,215,0,0.2);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: #ffd700;
+    border: 1px solid #ffd700;
+}
+
+/* Dano */
+.arma-dano {
+    background: rgba(0,0,0,0.3);
+    border-radius: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+    border: 2px solid #ffd700;
+}
+
+.dado {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 2px 2px 0 #8b4513;
+}
+
+/* Propriedades */
+.arma-propriedades {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.propriedade {
+    background: #ffd700;
+    color: #1a1a1a;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+/* Efeito */
+.arma-efeito {
+    background: rgba(255,215,0,0.1);
+    border-radius: 20px;
+    padding: 15px;
+    border: 2px dashed #ffd700;
+}
+
+.efeito-label {
+    display: block;
+    color: #ffd700;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.arma-efeito p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ===== EMPTY STATE ===== */
+.armas-page .empty-state {
+    text-align: center;
+    padding: 60px 30px;
+    background: #2a2a2a;
+    border-radius: 40px;
+    border: 4px dashed #ffd700;
+    grid-column: 1 / -1;
+}
+
+.armas-page .empty-state .emoji {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px #ffd700);
+}
+
+.armas-page .empty-state h3 {
+    color: #ffd700;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.armas-page .empty-state p {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+/* ===== LOADING ===== */
+.armas-page .loading-screen {
+    text-align: center;
+    padding: 80px 20px;
+    background: #2a2a2a;
+    border-radius: 40px;
+    border: 4px solid #ffd700;
+}
+
+.armas-page .loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ffd700;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.armas-page .loading-screen p {
+    color: #ffd700;
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .armas-page h1 {
+        font-size: 2rem;
+    }
+    
+    .armas-page .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .categoria-titulo {
+        font-size: 1.4rem;
+        flex-wrap: wrap;
+    }
+    
+    .categoria-sub {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .arma-header {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    
+    .arma-nome {
+        width: 100%;
+    }
+    
+    .arma-tipo {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dado {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .armas-page .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .armas-page .filtros-rapidos {
+        flex-direction: column;
+    }
+    
+    .armas-page .filtro-tag {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .armas-page .busca-wrapper {
+        flex-direction: column;
+    }
+    
+    .categoria-titulo {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+    
+    .categoria-emoji {
+        font-size: 2rem;
+    }
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px #ffd700; }
+    50% { box-shadow: 0 0 30px #ffd700; }
+}
+
+.arma-card:hover {
+    animation: glow 2s infinite;
+}
+
+/* Scrollbar personalizada */
+.armas-page::-webkit-scrollbar {
+    width: 8px;
+}
+
+.armas-page::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.armas-page::-webkit-scrollbar-thumb {
+    background: #ffd700;
+    border-radius: 10px;
+}
+
+.armas-page::-webkit-scrollbar-thumb:hover {
+    background: #ffaa00;
+}
